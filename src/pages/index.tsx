@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import Header from "@/components/UI/Header";
 
 const IndexPage = () => (
     <div>
@@ -7,10 +8,7 @@ const IndexPage = () => (
             <title>Next starter pack</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
-
-        <div style={{ textAlign: 'center' }}>
-            <h1>Next.js starter pack</h1>
-        </div>
+        <Header/>
     </div>
 );
 
