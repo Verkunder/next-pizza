@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Menu from '@/components/Header/Menu';
 import Phone from '@/components/Header/Phone';
 import Basket from '@/components/Header/Basket';
@@ -6,9 +6,29 @@ import Basket from '@/components/Header/Basket';
 const Index = () => {
     const [isOpen, setOpen] = useState<boolean>(false);
 
+    const menuRef = useRef<HTMLElement>(null)
+
     const toggleOpen = () => {
         setOpen(!isOpen);
     };
+
+    useEffect(() => {
+        if (!isOpen) return;
+
+        const handlerClick = e => {
+            if (!menuRef.current) return;
+            if (!menuRef.current.contains(e.target)) {
+                toggleOpen()
+            }
+        }
+
+        document.addEventListener('click', handlerClick)
+
+        return () => {
+            document.removeEventListener('click', handlerClick)
+        }
+
+    }, [isOpen])
 
     return (
         <header className="header">
@@ -21,7 +41,7 @@ const Index = () => {
                             className="logo-header__img"
                         />
                     </a>
-                    <Menu isOpen={isOpen} toggleOpen={toggleOpen} />
+                    <Menu isOpen={isOpen} toggleOpen={toggleOpen} menuRef={menuRef} />
                     <Phone />
                     <Basket />
                     <a className="language">

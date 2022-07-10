@@ -3,10 +3,11 @@ import React, { FC } from 'react';
 interface MenuProprs {
     isOpen: boolean;
     toggleOpen: () => void;
+    menuRef: HTMLElement
 }
 
-const Menu: FC<MenuProprs> = ({ isOpen, toggleOpen }) => (
-    <nav className={!isOpen ? 'navigation' : 'navigation open'}>
+const Menu: FC<MenuProprs> = ({ isOpen, toggleOpen, menuRef }) => (
+    <nav className={!isOpen ? 'navigation' : 'navigation open'} ref={menuRef}>
         <img src="/img/svg/logo-mobile-menu.svg" alt="" className="logo-mobile" />
         <div className="navigation__list">
             <div className="navigation__link">

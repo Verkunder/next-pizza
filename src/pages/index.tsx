@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '@/components/Header/index';
 import Footer from '@/components/Footer';
 import Banner from '@/components/Banner';
+import SaleSlidet from '@/components/SaleSlidet';
 
 const IndexPage = () => (
     <div>
@@ -13,6 +14,7 @@ const IndexPage = () => (
         <Header />
         <main>
             <Banner />
+            <SaleSlidet />
         </main>
         <Footer />
     </div>
