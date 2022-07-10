@@ -1,5 +1,5 @@
 import 'normalize.css';
-import '../assets/styles/index.sass'
+import '../assets/styles/index.sass';
 import React from 'react';
 
 import { StoreProvider } from '@/hooks/useStore';

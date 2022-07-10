@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
-import Header from "@/components/Header/index";
+import Header from '@/components/Header/index';
+import Footer from '@/components/Footer';
+import Banner from '@/components/Banner';
 
 const IndexPage = () => (
     <div>
@@ -8,7 +10,11 @@ const IndexPage = () => (
             <title>Pizza</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Header/>
+        <Header />
+        <main>
+            <Banner />
+        </main>
+        <Footer />
     </div>
 );
 

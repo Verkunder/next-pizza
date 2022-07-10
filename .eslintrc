@@ -54,6 +54,7 @@
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
     "react/jsx-props-no-spreading": "warn",
     "react/no-danger": "warn",
+    "@next/next/no-document-import-in-page": "off",
     "react/no-unescaped-entities": "off",
     "react-hooks/exhaustive-deps": "off",
     "react/prop-types": "off",
