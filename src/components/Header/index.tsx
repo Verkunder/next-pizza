@@ -6,29 +6,27 @@ import Basket from '@/components/Header/Basket';
 const Index = () => {
     const [isOpen, setOpen] = useState<boolean>(false);
 
-    const menuRef = useRef<HTMLElement>(null)
+    const menuRef = useRef<HTMLIFrameElement>(null);
 
     const toggleOpen = () => {
         setOpen(!isOpen);
     };
 
     useEffect(() => {
-        if (!isOpen) return;
+        if (!isOpen) return null;
 
         const handlerClick = e => {
-            if (!menuRef.current) return;
+            if (!menuRef.current) return null;
             if (!menuRef.current.contains(e.target)) {
-                toggleOpen()
+                toggleOpen();
             }
-        }
+            return null;
+        };
 
-        document.addEventListener('click', handlerClick)
+        document.addEventListener('click', handlerClick);
 
-        return () => {
-            document.removeEventListener('click', handlerClick)
-        }
-
-    }, [isOpen])
+        return () => document.removeEventListener('click', handlerClick);
+    }, [isOpen]);
 
     return (
         <header className="header">

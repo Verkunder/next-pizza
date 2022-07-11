@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, LegacyRef } from 'react';
 
 interface MenuProprs {
     isOpen: boolean;
     toggleOpen: () => void;
-    menuRef: HTMLElement
+    menuRef: LegacyRef<HTMLElement>;
 }
 
 const Menu: FC<MenuProprs> = ({ isOpen, toggleOpen, menuRef }) => (

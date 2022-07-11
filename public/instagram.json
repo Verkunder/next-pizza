@@ -1,0 +1,12 @@
+[
+  {"img" : "/img/png/inst01.png", "alt":  "Кусочек пиццы"},
+  {"img" : "/img/png/inst02.png", "alt":  "Пицца с помидорами"},
+  {"img": "/img/png/inst03.png", "alt":  "Тесто"},
+  {"img": "/img/png/inst04.png", "alt":  "Девушка с пиццей"},
+  {"img": "/img/png/inst05.png", "alt":  "Приготовление"},
+  {"img": "/img/png/inst06.png", "alt":  "Пицца с грибами"},
+  {"img": "/img/png/inst07.png", "alt":  "Тесто с перцем"},
+  {"img": "/img/png/inst08.png", "alt":  "Украшение пиццы"},
+  {"img": "/img/png/inst09.png", "alt":  "Пицца с моцареллой"},
+  {"img": "/img/png/inst10.png", "alt":  "Ребенок с пиццей"}
+]
