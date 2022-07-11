@@ -21,7 +21,7 @@ interface CatalogProps {
 }
 
 const Index: FC<CatalogProps> = ({ catalog, load }) => {
-    const [filterCatalog, setFilterCatalog] = useState([]);
+    const [filterCatalog, setFilterCatalog] = useState(catalog);
     const [filterType, setFilterType] = useState<string>('all');
 
     const addFilterType = (type: string) => {
