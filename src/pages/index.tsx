@@ -8,7 +8,7 @@ import Catalog from '@/components/Catalog/index';
 import Delivery from '@/components/Delivery';
 import About from '@/components/About';
 import Instagram from '@/components/instagram';
-import Basket from '@/components/Basket';
+import Index from '@/components/Basket/index';
 
 interface CatalogProps {
     catalog: [
@@ -48,7 +48,7 @@ const IndexPage: FC<CatalogProps> = ({ catalog, load, errorMessage }) => (
             <Instagram />
         </main>
         <Footer />
-        <Basket />
+        <Index />
     </div>
 );
 

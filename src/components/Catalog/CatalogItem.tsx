@@ -1,4 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '@/hooks/useStore';
 
 interface CatalogItemProps {
     catalogItem: {
@@ -13,7 +15,9 @@ interface CatalogItemProps {
     };
 }
 
-const CatalogItem: FC<CatalogItemProps> = ({ catalogItem }) => {
+const CatalogItem: FC<CatalogItemProps> = observer(({ catalogItem }) => {
+    const { addBasket } = useStore();
+
     const { id, name, description, size, price, icon, img, sort } = catalogItem;
 
     const [activeSize, setActiveSize] = useState<number>(size);
@@ -77,7 +81,13 @@ const CatalogItem: FC<CatalogItemProps> = ({ catalogItem }) => {
                             ))}
                         </div>
                         <div className="catalog-pizza-card__price">от 699 руб.</div>
-                        <button className="catalog-pizza-card__buy" type="button">
+                        <button
+                            className="catalog-pizza-card__buy"
+                            type="button"
+                            onClick={() =>
+                                addBasket(id, name, description, activeSize, price, icon, img, sort)
+                            }
+                        >
                             Заказать
                         </button>
                         <button className="catalog-pizza-card__buy mobileBuy" type="button">
@@ -88,6 +98,6 @@ const CatalogItem: FC<CatalogItemProps> = ({ catalogItem }) => {
             </div>
         </div>
     );
-};
+});
 
 export default CatalogItem;

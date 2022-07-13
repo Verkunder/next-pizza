@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '@/hooks/useStore';
 
 const Basket = observer(() => {
-    const { toggleModal } = useStore();
+    const { toggleModal, basket } = useStore();
     return (
         <a
             role="button"
@@ -16,7 +16,7 @@ const Basket = observer(() => {
         >
             <div className="basket__wrap--icon">
                 <img src="/img/svg/basket-icon.svg" alt="Корзина" className="basket__icon" />
-                <div className="basket__count--icon">3</div>
+                {basket.length ? <div className="basket__count--icon">{basket.length}</div> : ''}
             </div>
             <div className="basket__text">
                 <div className="basket__text--order">Ваш заказ</div>
