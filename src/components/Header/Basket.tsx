@@ -12,7 +12,7 @@ const Basket = observer(() => {
             data-toggle="modal"
             data-target=".bd-example-modal-lg"
             onClick={toggleModal}
-            onKeyDown={toggleModal}
+            onKeyDown={() => ''}
         >
             <div className="basket__wrap--icon">
                 <img src="/img/svg/basket-icon.svg" alt="Корзина" className="basket__icon" />

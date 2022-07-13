@@ -31,7 +31,7 @@ const Index = observer(() => {
                 <button
                     type="button"
                     aria-label="Close"
-                    onKeyDown={toggleModal}
+                    onKeyDown={() => ''}
                     className="modal__close"
                     data-dismiss="modal"
                     onClick={toggleModal}
