@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from '@mui/material/Modal';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '@/hooks/useStore';
 
 const style = {
     position: 'absolute',
@@ -13,20 +15,26 @@ const style = {
     p: 4,
 };
 
-const Basket = () => {
-    const [open, setOpen] = useState(true);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+const Basket = observer(() => {
+    const { isOpen, toggleModal } = useStore();
+
     return (
         <Modal
-            open={open}
-            onClose={handleClose}
+            open={isOpen}
+            onClose={toggleModal}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
             <div className="modal-content">
                 <h3 className="modal__title">Ваш заказ</h3>
-                <div className="modal__close" data-dismiss="modal" />
+                <button
+                    type="button"
+                    aria-label="Close"
+                    onKeyDown={toggleModal}
+                    className="modal__close"
+                    data-dismiss="modal"
+                    onClick={toggleModal}
+                />
                 <div className="wrap__basket">
                     <div className="basket-modal">
                         <div className="basket-modal__item">
@@ -424,9 +432,7 @@ const Basket = () => {
                         <label htmlFor="" className="error">
                             Выберите способ оплаты!
                         </label>
-                        <div type="submit" className="buy-form__btn--buy">
-                            Оформить заказ
-                        </div>
+                        <div className="buy-form__btn--buy">Оформить заказ</div>
                         <div className="buy-form__info smallText">
                             Нажимая кнопку &laquo;Оформить заказ&raquo; вы&nbsp;соглашаетесь
                             с&nbsp;политикой конфиденциальности
@@ -436,6 +442,6 @@ const Basket = () => {
             </div>
         </Modal>
     );
-};
+});
 
 export default Basket;

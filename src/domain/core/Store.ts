@@ -3,7 +3,18 @@ import { enableStaticRendering } from 'mobx-react-lite';
 
 enableStaticRendering(typeof window === 'undefined');
 
-export default class Store {
+export interface IStoreProps {
+    isOpen: boolean;
+    toggleModal: () => void;
+}
+
+export default class Store implements IStoreProps {
+    isOpen = false;
+
+    toggleModal = () => {
+        this.isOpen = !this.isOpen;
+    };
+
     constructor() {
         makeAutoObservable(this);
     }
