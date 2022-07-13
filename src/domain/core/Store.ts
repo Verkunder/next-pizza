@@ -26,12 +26,22 @@ export interface IStoreProps {
         img: string,
         sort: string
     ) => void;
+    totalSum: number;
+    deleteItem: (idx: number) => void;
 }
 
 export default class Store implements IStoreProps {
     isOpen = false;
 
     basket = [];
+
+    get totalSum() {
+        return this.basket.reduce((acc, num) => Number(acc) + Number(num.price), 0) as number;
+    }
+
+    deleteItem = idx => {
+        this.basket.filter(({ id }) => id !== idx);
+    };
 
     addBasket = (
         id: number,

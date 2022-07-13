@@ -17,7 +17,7 @@ const style = {
 };
 
 const Index = observer(() => {
-    const { isOpen, toggleModal, basket } = useStore();
+    const { isOpen, toggleModal, basket, totalSum } = useStore();
 
     return (
         <Modal
@@ -48,7 +48,7 @@ const Index = observer(() => {
                         <>
                             <div className="sum-basket">
                                 <div className="sum-basket__text">Сумма заказа:</div>
-                                <div className="sum-basket__sum">1 877 руб</div>
+                                <div className="sum-basket__sum">{totalSum} руб</div>
                             </div>
                             <form id="buy" className="buy-form" autoComplete="off" name="buy">
                                 <span className="buy-form__title">Контакты</span>

@@ -1,4 +1,6 @@
 import React, { FC } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '@/hooks/useStore';
 
 interface IBasketItemProps {
     item: {
@@ -13,8 +15,9 @@ interface IBasketItemProps {
     };
 }
 
-const BasketItem: FC<IBasketItemProps> = ({ item }) => {
+const BasketItem: FC<IBasketItemProps> = observer(({ item }) => {
     const { id, name, description, size, price, icon, img, sort } = item;
+    const { deleteItem } = useStore();
     return (
         <div className="basket-modal__item">
             <div className="basket-modal__wrap--img">
@@ -42,10 +45,15 @@ const BasketItem: FC<IBasketItemProps> = ({ item }) => {
             </div>
             <div className="basket-modal__wrap--price">
                 <div className="basket-modal__price">{price} руб</div>
-                <div className="basket-modal__remove--item" />
+                <button
+                    type="button"
+                    aria-label="Delete"
+                    onClick={() => deleteItem(id)}
+                    className="basket-modal__remove--item"
+                />
             </div>
         </div>
     );
-};
+});
 
 export default BasketItem;

@@ -80,7 +80,7 @@ const CatalogItem: FC<CatalogItemProps> = observer(({ catalogItem }) => {
                                 </div>
                             ))}
                         </div>
-                        <div className="catalog-pizza-card__price">от 699 руб.</div>
+                        <div className="catalog-pizza-card__price">от {price} руб.</div>
                         <button
                             className="catalog-pizza-card__buy"
                             type="button"
