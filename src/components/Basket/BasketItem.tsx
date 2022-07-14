@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '@/hooks/useStore';
 
@@ -19,9 +19,7 @@ interface IBasketItemProps {
 const BasketItem: FC<IBasketItemProps> = observer(({ item }) => {
     const { id, name, description, size, price, icon, img, sort, quantity } = item;
 
-    const [itemQuantity, setitemQuantity] = useState<number>(quantity);
-
-    const { deleteItem } = useStore();
+    const { deleteItem, plusItemQuantity, minusItemQuantity } = useStore();
     return (
         <div className="basket-modal__item">
             <div className="basket-modal__wrap--img">
@@ -47,26 +45,24 @@ const BasketItem: FC<IBasketItemProps> = observer(({ item }) => {
                     role="button"
                     tabIndex={0}
                     className={
-                        itemQuantity === 1 ? 'basket-modal__minus disabled' : 'basket-modal__minus'
+                        quantity === 1 ? 'basket-modal__minus disabled' : 'basket-modal__minus'
                     }
                     onKeyDown={null}
                     aria-label="Minus"
-                    onClick={() =>
-                        itemQuantity !== 1 ? setitemQuantity(itemQuantity - 1) : setitemQuantity(1)
-                    }
+                    onClick={() => minusItemQuantity(item)}
                 />
-                <input type="text" className="basket-modal__count" value={itemQuantity} />
+                <input type="text" className="basket-modal__count" value={quantity} />
                 <div
                     role="button"
                     tabIndex={0}
                     aria-label="Plus"
                     className="basket-modal__plus"
-                    onClick={() => setitemQuantity(itemQuantity + 1)}
+                    onClick={() => plusItemQuantity(item)}
                     onKeyDown={null}
                 />
             </div>
             <div className="basket-modal__wrap--price">
-                <div className="basket-modal__price">{price * itemQuantity} руб</div>
+                <div className="basket-modal__price">{price * quantity} руб</div>
                 <button
                     type="button"
                     tabIndex={0}

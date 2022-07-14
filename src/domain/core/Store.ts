@@ -30,6 +30,28 @@ export interface IStoreProps {
     ) => void;
     totalSum: number;
     deleteItem: (idx: number) => void;
+    plusItemQuantity: (item: {
+        id: number;
+        name: string;
+        description: string;
+        size: number;
+        price: number;
+        icon: Array<string>;
+        img: string;
+        sort: string;
+        quantity: number;
+    }) => void;
+    minusItemQuantity: (item: {
+        id: number;
+        name: string;
+        description: string;
+        size: number;
+        price: number;
+        icon: Array<string>;
+        img: string;
+        sort: string;
+        quantity: number;
+    }) => void;
 }
 
 export default class Store implements IStoreProps {
@@ -38,7 +60,10 @@ export default class Store implements IStoreProps {
     basket = [];
 
     get totalSum() {
-        return this.basket.reduce((acc, num) => Number(acc) + Number(num.price), 0) as number;
+        return this.basket.reduce(
+            (acc, num) => Number(acc) + Number(num.price * num.quantity),
+            0
+        ) as number;
     }
 
     deleteItem = idx => {
@@ -56,7 +81,58 @@ export default class Store implements IStoreProps {
         sort: string,
         quantity: number
     ) => {
-        this.basket.push({ id, name, description, size, price, icon, img, sort, quantity });
+        if (this.basket.find(item => item.id === id)) {
+            this.basket = this.basket.filter(item => item.id !== id);
+            this.basket.push({
+                id,
+                name,
+                description,
+                size,
+                price,
+                icon,
+                img,
+                sort,
+                quantity: quantity + 1,
+            });
+        } else {
+            this.basket.push({ id, name, description, size, price, icon, img, sort, quantity });
+        }
+        this.basket.sort((a, b) => {
+            if (a.id > b.id) {
+                return -1;
+            }
+            return 1;
+
+            return 0;
+        });
+    };
+
+    plusItemQuantity = item => {
+        this.basket = this.basket.filter(({ id }) => id !== item.id);
+        this.basket.push({ ...item, quantity: Number(item.quantity) + 1 });
+        this.basket.sort((a, b) => {
+            if (a.id > b.id) {
+                return -1;
+            }
+            return 1;
+
+            return 0;
+        });
+    };
+
+    minusItemQuantity = item => {
+        if (item.quantity !== 1) {
+            this.basket = this.basket.filter(({ id }) => id !== item.id);
+            this.basket.push({ ...item, quantity: item.quantity - 1 });
+            this.basket.sort((a, b) => {
+                if (a.id > b.id) {
+                    return -1;
+                }
+                return 1;
+
+                return 0;
+            });
+        }
     };
 
     toggleModal = () => {
