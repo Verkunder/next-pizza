@@ -4,15 +4,15 @@ import { useStore } from '@/hooks/useStore';
 
 interface IBasketItemProps {
     item: {
-        id?: number;
-        name?: string;
-        description?: string;
-        size?: number;
-        price?: number;
-        icon?: Array<string>;
-        img?: string;
-        sort?: string;
-        quantity?: number;
+        id: number;
+        name: string;
+        description: string;
+        size: number;
+        price: number;
+        icon: Array<string>;
+        img: string;
+        sort: string;
+        quantity: number;
     };
 }
 

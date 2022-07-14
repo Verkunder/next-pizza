@@ -20,9 +20,15 @@ const Basket = observer(() => {
             </div>
             <div className="basket__text">
                 <div className="basket__text--order">Ваш заказ</div>
-                <div className="basket__items--text smallText">
-                    Итальянская и&nbsp;ещё 2&nbsp;пиццы
-                </div>
+                {basket.length > 0 ? (
+                    <div className="basket__items--text smallText">
+                        {basket.length > 1
+                            ? `${basket[0].name} и ещё ${basket.length - 1}`
+                            : basket[0].name}
+                    </div>
+                ) : (
+                    <div className="basket__items--text smallText">Тут пока ничего нет</div>
+                )}
             </div>
         </a>
     );
