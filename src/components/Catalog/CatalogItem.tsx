@@ -85,7 +85,17 @@ const CatalogItem: FC<CatalogItemProps> = observer(({ catalogItem }) => {
                             className="catalog-pizza-card__buy"
                             type="button"
                             onClick={() =>
-                                addBasket(id, name, description, activeSize, price, icon, img, sort)
+                                addBasket(
+                                    id,
+                                    name,
+                                    description,
+                                    activeSize,
+                                    price,
+                                    icon,
+                                    img,
+                                    sort,
+                                    1
+                                )
                             }
                         >
                             Заказать

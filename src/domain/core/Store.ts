@@ -15,6 +15,7 @@ export interface IStoreProps {
         icon?: Array<string>;
         img?: string;
         sort?: string;
+        quantity?: number;
     }>;
     addBasket: (
         id: number,
@@ -24,7 +25,8 @@ export interface IStoreProps {
         price: number,
         icon: Array<string>,
         img: string,
-        sort: string
+        sort: string,
+        quantity: number
     ) => void;
     totalSum: number;
     deleteItem: (idx: number) => void;
@@ -40,7 +42,7 @@ export default class Store implements IStoreProps {
     }
 
     deleteItem = idx => {
-        this.basket.filter(({ id }) => id !== idx);
+        this.basket = this.basket.filter(({ id }) => id !== idx);
     };
 
     addBasket = (
@@ -51,9 +53,10 @@ export default class Store implements IStoreProps {
         price: number,
         icon: Array<string>,
         img: string,
-        sort: string
+        sort: string,
+        quantity: number
     ) => {
-        this.basket.push({ id, name, description, size, price, icon, img, sort });
+        this.basket.push({ id, name, description, size, price, icon, img, sort, quantity });
     };
 
     toggleModal = () => {
