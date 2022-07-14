@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
+import Image from 'next/image';
 import { useStore } from '@/hooks/useStore';
 
 interface CatalogItemProps {
@@ -38,12 +39,19 @@ const CatalogItem: FC<CatalogItemProps> = observer(({ catalogItem }) => {
                 <div className="catalog-pizza-card__wrap--left--side--mobile">
                     <div className="catalog-pizza-card__wrap--icon">
                         {icon.map((item, idx) => (
-                            <img
-                                width="24px"
-                                height="24px"
-                                style={{ margin: '5px 0' }}
-                                alt="Pizza"
+                            // <img
+                            //     width="24px"
+                            //     height="24px"
+                            //     style={{ margin: '5px 0' }}
+                            //     alt="Pizza"
+                            //     src={`/img/svg/${item}`}
+                            //     key={idx}
+                            // />
+                            <Image
                                 src={`/img/svg/${item}`}
+                                alt="Pizza"
+                                width={24}
+                                height={24}
                                 key={idx}
                             />
                         ))}

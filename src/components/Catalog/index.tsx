@@ -4,19 +4,17 @@ import CatalogFilter from '@/components/Catalog/CatalogFilter';
 import Loader from '@/components/Loader';
 
 interface CatalogProps {
-    catalog: [
-        {
-            id: number;
-            name: string;
-            description: string;
-            size: number;
-            price: number;
-            icon: Array<string>;
-            img: string;
-            pizzaSize: string;
-            sort: string;
-        }
-    ];
+    catalog: {
+        id: number;
+        name: string;
+        description: string;
+        size: number;
+        price: number;
+        icon: Array<string>;
+        img: string;
+        pizzaSize: string;
+        sort: string;
+    }[];
     load: boolean;
 }
 

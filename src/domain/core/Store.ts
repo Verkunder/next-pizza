@@ -7,15 +7,15 @@ export interface IStoreProps {
     isOpen: boolean;
     toggleModal: () => void;
     basket: Array<{
-        id?: number;
-        name?: string;
-        description?: string;
-        size?: number;
-        price?: number;
-        icon?: Array<string>;
-        img?: string;
-        sort?: string;
-        quantity?: number;
+        id: number;
+        name: string;
+        description: string;
+        size: number;
+        price: number;
+        icon: Array<string>;
+        img: string;
+        sort: string;
+        quantity: number;
     }>;
     addBasket: (
         id: number,

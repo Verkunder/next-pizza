@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { FC, LegacyRef, useEffect } from 'react';
 
 interface MenuProprs {
@@ -34,7 +35,9 @@ const Menu: FC<MenuProprs> = ({ isOpen, toggleOpen, menuRef }) => {
                     <a href="#">О нас</a>
                 </div>
                 <div className="navigation__link">
-                    <a href="#">Контакты</a>
+                    <Link href="/contact">
+                        <a>Контакты</a>
+                    </Link>
                 </div>
             </div>
             <div className="about-mobile">
