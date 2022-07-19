@@ -29,7 +29,9 @@ const Menu: FC<MenuProprs> = ({ isOpen, toggleOpen, menuRef }) => {
             <img src="/img/svg/logo-mobile-menu.svg" alt="" className="logo-mobile" />
             <div className="navigation__list">
                 <div className="navigation__link">
-                    <a href="#">Меню</a>
+                    <Link href="/admin">
+                        <a>Админ</a>
+                    </Link>
                 </div>
                 <div className="navigation__link">
                     <a href="#">О нас</a>
