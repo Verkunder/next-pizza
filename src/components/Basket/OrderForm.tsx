@@ -54,7 +54,7 @@ const OrderForm = () => {
                         {...register('phone', {
                             required: true,
                             maxLength: 18,
-                            pattern: /^([+]?[0-9\s-\(\)]{3,25})*$/i,
+                            /* pattern: /^([+]?[0-9\s-\(\)]{3,25})*$/i, */
                         })}
                     />
                     <label className="buy-form__label" htmlFor="phone">

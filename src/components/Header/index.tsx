@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { observer } from 'mobx-react-lite';
 import Menu from '@/components/Header/Menu';
 import Phone from '@/components/Header/Phone';
 import Basket from '@/components/Header/Basket';
+import Push from '@/components/Push';
+import Portal from '@/components/Portal';
+import { useStore } from '@/hooks/useStore';
 
 const Index = () => {
     const [isOpen, setOpen] = useState<boolean>(false);
+
+    const { basket } = useStore();
 
     const menuRef = useRef<HTMLIFrameElement>(null);
 
@@ -56,8 +62,13 @@ const Index = () => {
                     </div>
                 </div>
             </div>
+            {basket.length > 0 && (
+                <Portal>
+                    <Push type="Успешно" message="Товар успешно добавлен в корзину" />
+                </Portal>
+            )}
         </header>
     );
 };
 
-export default Index;
+export default observer(Index);
