@@ -3,6 +3,7 @@ import Modal from '@mui/material/Modal';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '@/hooks/useStore';
 import BasketItem from '@/components/Basket/BasketItem';
+import OrderForm from '@/components/Basket/OrderForm';
 
 const style = {
     position: 'absolute',
@@ -50,80 +51,7 @@ const Index = observer(() => {
                                 <div className="sum-basket__text">Сумма заказа:</div>
                                 <div className="sum-basket__sum">{totalSum} руб</div>
                             </div>
-                            <form id="buy" className="buy-form" autoComplete="off" name="buy">
-                                <span className="buy-form__title">Контакты</span>
-                                <div className="buy-form__wrap buy-form__wrap--two--сolumn">
-                                    <div className="buy-form__wrap--input">
-                                        <input
-                                            type="text"
-                                            className="buy-form__input"
-                                            name="firstname"
-                                            id="firstname"
-                                        />
-                                        <label className="buy-form__label" htmlFor="firstname">
-                                            Ваше имя
-                                        </label>
-                                    </div>
-                                    <div className="buy-form__wrap--input">
-                                        <input
-                                            type="text"
-                                            className="buy-form__input"
-                                            name="phone"
-                                            id="phone"
-                                        />
-                                        <label className="buy-form__label" htmlFor="phone">
-                                            Телефон
-                                        </label>
-                                    </div>
-                                </div>
-                                <div className="buy-form__wrap">
-                                    <div className="buy-form__wrap--input">
-                                        <input
-                                            type="text"
-                                            className="buy-form__input"
-                                            name="address"
-                                            id="address"
-                                        />
-                                        <label className="buy-form__label" htmlFor="address">
-                                            Адрес доставки
-                                        </label>
-                                    </div>
-                                </div>
-                                <div className="buy-form__title">Способ оплаты</div>
-                                <div className="buy-from__radio">
-                                    <input
-                                        type="radio"
-                                        className="buy-form__radio"
-                                        name="payment"
-                                        id="paymentСourier"
-                                    />
-                                    <label
-                                        htmlFor="paymentСourier"
-                                        className="buy-form__radio--label"
-                                    >
-                                        Оплата наличными или картой курьеру
-                                    </label>
-                                </div>
-                                <div className="buy-from__radio">
-                                    <input
-                                        type="radio"
-                                        className="buy-form__radio"
-                                        name="payment"
-                                        id="paymentSite"
-                                    />
-                                    <label htmlFor="paymentSite" className="buy-form__radio--label">
-                                        Оплата картой онлайн на&nbsp;сайте
-                                    </label>
-                                </div>
-                                <label htmlFor="" className="error">
-                                    Выберите способ оплаты!
-                                </label>
-                                <div className="buy-form__btn--buy">Оформить заказ</div>
-                                <div className="buy-form__info smallText">
-                                    Нажимая кнопку &laquo;Оформить заказ&raquo; вы&nbsp;соглашаетесь
-                                    с&nbsp;политикой конфиденциальности
-                                </div>
-                            </form>
+                            <OrderForm />
                         </>
                     ) : (
                         ''

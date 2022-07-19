@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, observable } from 'mobx';
 import { enableStaticRendering } from 'mobx-react-lite';
 
 enableStaticRendering(typeof window === 'undefined');
@@ -102,8 +102,6 @@ export default class Store implements IStoreProps {
                 return -1;
             }
             return 1;
-
-            return 0;
         });
     };
 
@@ -115,8 +113,6 @@ export default class Store implements IStoreProps {
                 return -1;
             }
             return 1;
-
-            return 0;
         });
     };
 
@@ -129,8 +125,6 @@ export default class Store implements IStoreProps {
                     return -1;
                 }
                 return 1;
-
-                return 0;
             });
         }
     };
@@ -140,7 +134,9 @@ export default class Store implements IStoreProps {
     };
 
     constructor() {
-        makeAutoObservable(this);
+        makeAutoObservable(this, {
+            basket: observable,
+        });
     }
 
     public hydrate: (data) => void;

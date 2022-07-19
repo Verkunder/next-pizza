@@ -344,6 +344,25 @@
     transition: border-color 0.3s ease-in-out
     width: 100%
 
+    &-error
+      border: 1px solid #fb7a7a
+      border-radius: 4px
+      background: transparent
+      padding: 13px 12px
+      +roboto(16px, 150%)
+      color: $black
+      transition: border-color 0.3s ease-in-out
+      width: 100%
+      &+label
+        top: 0
+        left: 9px
+        transform: translateY(-50%)
+        background: #fff
+        padding: 0 4px
+        font-size: 13px
+        z-index: 2
+        color: #fb7a7a !important
+
     &:hover
       border-color: $black
 

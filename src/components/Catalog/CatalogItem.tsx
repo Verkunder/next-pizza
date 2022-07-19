@@ -39,14 +39,6 @@ const CatalogItem: FC<CatalogItemProps> = observer(({ catalogItem }) => {
                 <div className="catalog-pizza-card__wrap--left--side--mobile">
                     <div className="catalog-pizza-card__wrap--icon">
                         {icon.map((item, idx) => (
-                            // <img
-                            //     width="24px"
-                            //     height="24px"
-                            //     style={{ margin: '5px 0' }}
-                            //     alt="Pizza"
-                            //     src={`/img/svg/${item}`}
-                            //     key={idx}
-                            // />
                             <Image
                                 src={`/img/svg/${item}`}
                                 alt="Pizza"
