@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '@/hooks/useStore';
+import Portal from '@/components/Portal';
+import Push from '@/components/Push';
 
 const Basket = observer(() => {
-    const { toggleModal, basket } = useStore();
+    const { toggleModal, basket, action } = useStore();
+
     return (
         <a
             role="button"
@@ -28,6 +31,24 @@ const Basket = observer(() => {
                     </div>
                 ) : (
                     <div className="basket__items--text smallText">Тут пока ничего нет</div>
+                )}
+                {action === 'add' && (
+                    <Portal>
+                        <Push
+                            type={'Успешно'}
+                            message={'Товар добавлен в корзину'}
+                            severityType={'success'}
+                        />
+                    </Portal>
+                )}
+                {action === 'delete' && (
+                    <Portal>
+                        <Push
+                            type={'Успешно'}
+                            message={'Товар удален из корзины'}
+                            severityType={'warning'}
+                        />
+                    </Portal>
                 )}
             </div>
         </a>

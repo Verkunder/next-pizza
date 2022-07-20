@@ -1,10 +1,12 @@
 import { makeAutoObservable, observable } from 'mobx';
 import { enableStaticRendering } from 'mobx-react-lite';
+import Portal from '@/components/Portal';
 
 enableStaticRendering(typeof window === 'undefined');
 
 export interface IStoreProps {
     isOpen: boolean;
+    action: string;
     toggleModal: () => void;
     basket: Array<{
         id: number;
@@ -59,6 +61,8 @@ export default class Store implements IStoreProps {
 
     basket = [];
 
+    action = '';
+
     get totalSum() {
         return this.basket.reduce(
             (acc, num) => Number(acc) + Number(num.price * num.quantity),
@@ -68,6 +72,7 @@ export default class Store implements IStoreProps {
 
     deleteItem = idx => {
         this.basket = this.basket.filter(({ id }) => id !== idx);
+        this.action = 'delete';
     };
 
     addBasket = (
@@ -103,6 +108,7 @@ export default class Store implements IStoreProps {
             }
             return 1;
         });
+        this.action = 'add';
     };
 
     plusItemQuantity = item => {

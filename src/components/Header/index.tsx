@@ -10,8 +10,6 @@ import { useStore } from '@/hooks/useStore';
 const Index = () => {
     const [isOpen, setOpen] = useState<boolean>(false);
 
-    const { basket } = useStore();
-
     const menuRef = useRef<HTMLIFrameElement>(null);
 
     const toggleOpen = () => {
@@ -62,11 +60,6 @@ const Index = () => {
                     </div>
                 </div>
             </div>
-            {basket.length > 0 && (
-                <Portal>
-                    <Push type="Успешно" message="Товар успешно добавлен в корзину" />
-                </Portal>
-            )}
         </header>
     );
 };
