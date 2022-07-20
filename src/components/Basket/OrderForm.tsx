@@ -17,10 +17,7 @@ const OrderForm = () => {
         formState: { errors },
     } = useForm<Inputs>();
 
-    const name = watch('name');
-    const phone = watch('phone');
-    const adress = watch('adress');
-    const radio = watch('radio');
+    const { name, phone, adress, radio } = watch();
 
     const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
     return (
