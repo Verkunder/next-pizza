@@ -25,10 +25,12 @@ const Sidebar = () => {
             <div className="sidebar__center">
                 <ul>
                     <p className="sidebar__center-title">Главная</p>
-                    <li>
-                        <DashboardIcon className="sidebar__center-icon" />
-                        <span>Статистика</span>
-                    </li>
+                    <Link href="/admin">
+                        <li>
+                            <DashboardIcon className="sidebar__center-icon" />
+                            <span>Статистика</span>
+                        </li>
+                    </Link>
                     <p className="sidebar__center-title">Продажи</p>
                     <Link href="/users">
                         <li>
@@ -36,51 +38,12 @@ const Sidebar = () => {
                             <span>Пользователи</span>
                         </li>
                     </Link>
-                    <Link href="/products">
+                    <Link href="/">
                         <li>
                             <StoreIcon className="sidebar__center-icon" />
                             <span>Продукты</span>
                         </li>
                     </Link>
-                    <li>
-                        <CreditCardIcon className="sidebar__center-icon" />
-                        <span>Заказы</span>
-                    </li>
-                    <li>
-                        <LocalShippingIcon className="sidebar__center-icon" />
-                        <span>Доставка</span>
-                    </li>
-                    <p className="sidebar__center-title">USEFUL</p>
-                    <li>
-                        <InsertChartIcon className="sidebar__center-icon" />
-                        <span>Stats</span>
-                    </li>
-                    <li>
-                        <NotificationsNoneIcon className="sidebar__center-icon" />
-                        <span>Notifications</span>
-                    </li>
-                    <p className="sidebar__center-title">SERVICE</p>
-                    <li>
-                        <SettingsSystemDaydreamOutlinedIcon className="sidebar__center-icon" />
-                        <span>System Health</span>
-                    </li>
-                    <li>
-                        <PsychologyOutlinedIcon className="sidebar__center-icon" />
-                        <span>Logs</span>
-                    </li>
-                    <li>
-                        <SettingsApplicationsIcon className="sidebar__center-icon" />
-                        <span>Settings</span>
-                    </li>
-                    <p className="sidebar__center-title">USER</p>
-                    <li>
-                        <AccountCircleOutlinedIcon className="sidebar__center-icon" />
-                        <span>Profile</span>
-                    </li>
-                    <li>
-                        <ExitToAppIcon className="sidebar__center-icon" />
-                        <span>Logout</span>
-                    </li>
                 </ul>
             </div>
             <div className="sidebar__bottom">

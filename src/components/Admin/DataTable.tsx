@@ -30,7 +30,7 @@ const Datatable = () => {
     ];
     return (
         <div className="datatable">
-            <div className="datatableTitle">Add New User</div>
+            <div className="datatableTitle">Пользователи</div>
             <DataGrid
                 className="datagrid"
                 rows={data}
