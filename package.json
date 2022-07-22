@@ -20,6 +20,7 @@
     "@emotion/styled": "11.9.3",
     "@mui/icons-material": "5.8.4",
     "@mui/material": "5.8.7",
+    "@mui/x-data-grid": "5.13.1",
     "@sentry/nextjs": "6.13.2",
     "@storybook/react": "6.3.8",
     "axios": "^0.21.4",
@@ -30,9 +31,11 @@
     "next": "11.1.2",
     "normalize.css": "^8.0.1",
     "react": "17.0.2",
+    "react-circular-progressbar": "2.1.0",
     "react-dom": "17.0.2",
     "react-hook-form": "7.33.1",
     "react-slick": "0.29.0",
+    "recharts": "2.1.12",
     "slick-carousel": "1.8.1"
   },
   "devDependencies": {
