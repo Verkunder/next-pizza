@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '@/hooks/useStore';
 import Portal from '@/components/Portal';
@@ -35,18 +35,18 @@ const Basket = observer(() => {
                 {action === 'add' && (
                     <Portal>
                         <Push
-                            type={'Успешно'}
-                            message={'Товар добавлен в корзину'}
-                            severityType={'success'}
+                            type="Успешно"
+                            message="Товар добавлен в корзину"
+                            severityType="success"
                         />
                     </Portal>
                 )}
                 {action === 'delete' && (
                     <Portal>
                         <Push
-                            type={'Успешно'}
-                            message={'Товар удален из корзины'}
-                            severityType={'warning'}
+                            type="Успешно"
+                            message="Товар удален из корзины"
+                            severityType="warning"
                         />
                     </Portal>
                 )}

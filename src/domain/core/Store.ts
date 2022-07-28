@@ -1,6 +1,5 @@
 import { makeAutoObservable, observable } from 'mobx';
 import { enableStaticRendering } from 'mobx-react-lite';
-import Portal from '@/components/Portal';
 
 enableStaticRendering(typeof window === 'undefined');
 

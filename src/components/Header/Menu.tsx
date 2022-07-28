@@ -37,7 +37,7 @@ const Menu: FC<MenuProprs> = ({ isOpen, toggleOpen, menuRef }) => {
                     <a href="#">О нас</a>
                 </div>
                 <div className="navigation__link">
-                    <Link href="/contact">
+                    <Link href="/RHF">
                         <a>Контакты</a>
                     </Link>
                 </div>

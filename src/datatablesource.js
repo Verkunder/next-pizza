@@ -4,14 +4,12 @@ export const userColumns = [
         field: 'user',
         headerName: 'User',
         width: 230,
-        renderCell: params => {
-            return (
-                <div className="cellWithImg">
-                    <img className="cellImg" src={params.row.img} alt="avatar" />
-                    {params.row.username}
-                </div>
-            );
-        },
+        renderCell: params => (
+            <div className="cellWithImg">
+                <img className="cellImg" src={params.row.img} alt="avatar" />
+                {params.row.username}
+            </div>
+        ),
     },
     {
         field: 'email',
@@ -28,13 +26,13 @@ export const userColumns = [
         field: 'status',
         headerName: 'Status',
         width: 160,
-        renderCell: params => {
-            return <div className={`cellWithStatus ${params.row.status}`}>{params.row.status}</div>;
-        },
+        renderCell: params => (
+            <div className={`cellWithStatus ${params.row.status}`}>{params.row.status}</div>
+        ),
     },
 ];
 
-//temporary data
+// temporary data
 export const userRows = [
     {
         id: 1,

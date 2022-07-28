@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import Sidebar from '@/components/Admin/Sidebar';
-import Navbar from '@/components/Admin/Navbar';
-import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
 import { Checkbox, TextareaAutosize, TextField } from '@mui/material';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -15,6 +12,8 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import Navbar from '@/components/Admin/Navbar';
+import Sidebar from '@/components/Admin/Sidebar';
 
 const Users = () => {
     const [file, setFile] = useState('');
@@ -22,7 +21,7 @@ const Users = () => {
 
     const [value, setValue] = useState<Date | null>(new Date());
     const handleChange = (event: SelectChangeEvent) => {
-        setAge(event.target.value as string);
+        setAge(event.target.value);
     };
     const handleChangeDara = (newValue: Date | null) => {
         setValue(newValue);
@@ -37,7 +36,7 @@ const Users = () => {
                 <Sidebar />
                 <div className="home__container">
                     <Navbar />
-                    <div className={'featured'} style={{ margin: '50px 450px', width: '900px' }}>
+                    <div className="featured" style={{ margin: '50px 450px', width: '900px' }}>
                         <FormControl>
                             <FormLabel id="demo-row-radio-buttons-group-label">
                                 Новый пользователь
@@ -75,7 +74,7 @@ const Users = () => {
                                     label="Мужской"
                                 />
                             </RadioGroup>
-                            <div style={{ marginTop: '15px' }}></div>
+                            <div style={{ marginTop: '15px' }} />
                             <InputLabel
                                 style={{ position: 'relative', top: '10px' }}
                                 id="demo-simple-select-label"
@@ -93,7 +92,7 @@ const Users = () => {
                                 <MenuItem value={20}>20</MenuItem>
                                 <MenuItem value={30}>30</MenuItem>
                             </Select>
-                            <div style={{ marginTop: '25px' }}></div>
+                            <div style={{ marginTop: '25px' }} />
                             <LocalizationProvider dateAdapter={AdapterDateFns}>
                                 <DesktopDatePicker
                                     label="Дата регистрации"
