@@ -2,6 +2,8 @@ import React, { FC, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import Image from 'next/image';
 import { useStore } from '@/hooks/useStore';
+import Portal from '@/components/Portal';
+import Push from '@/components/Push';
 
 interface CatalogItemProps {
     catalogItem: {
@@ -23,7 +25,16 @@ const CatalogItem: FC<CatalogItemProps> = observer(({ catalogItem }) => {
 
     const [activeSize, setActiveSize] = useState<number>(size);
 
+    const [add, setAdd] = useState<boolean>(false);
+
     const [imageSize, setImageSize] = useState<string>('');
+
+    const addHandler = () => {
+        setAdd(true);
+        setTimeout(() => {
+            setAdd(false);
+        }, 3000);
+    };
 
     useEffect(() => {
         if (activeSize === 20) setImageSize('small');
@@ -81,28 +92,37 @@ const CatalogItem: FC<CatalogItemProps> = observer(({ catalogItem }) => {
                             ))}
                         </div>
                         <div className="catalog-pizza-card__price">от {price} руб.</div>
-                        <button
-                            className="catalog-pizza-card__buy"
-                            type="button"
-                            onClick={() =>
-                                addBasket(
-                                    id,
-                                    name,
-                                    description,
-                                    activeSize,
-                                    price,
-                                    icon,
-                                    img,
-                                    sort,
-                                    1
-                                )
-                            }
-                        >
-                            Заказать
-                        </button>
-                        <button className="catalog-pizza-card__buy mobileBuy" type="button">
-                            от 699 руб.
-                        </button>
+                        <div>
+                            <Portal>
+                                <Push
+                                    type={'Успешно'}
+                                    message={'Товар добавлен в корзину'}
+                                    severityType={'success'}
+                                />
+                            </Portal>
+                            <button
+                                className="catalog-pizza-card__buy"
+                                type="button"
+                                onClick={() =>
+                                    addBasket(
+                                        id,
+                                        name,
+                                        description,
+                                        activeSize,
+                                        price,
+                                        icon,
+                                        img,
+                                        sort,
+                                        1
+                                    )
+                                }
+                            >
+                                Заказать
+                            </button>
+                            <button className="catalog-pizza-card__buy mobileBuy" type="button">
+                                от 699 руб.
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -72,7 +72,6 @@ export default class Store implements IStoreProps {
 
     deleteItem = idx => {
         this.basket = this.basket.filter(({ id }) => id !== idx);
-        this.action = 'delete';
     };
 
     addBasket = (
@@ -108,7 +107,6 @@ export default class Store implements IStoreProps {
             }
             return 1;
         });
-        this.action = 'add';
     };
 
     plusItemQuantity = item => {

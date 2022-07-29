@@ -32,7 +32,7 @@ const Basket = observer(() => {
                 ) : (
                     <div className="basket__items--text smallText">Тут пока ничего нет</div>
                 )}
-                {action === 'add' && (
+                {/*{action === 'add' && (
                     <Portal>
                         <Push
                             type={'Успешно'}
@@ -49,7 +49,7 @@ const Basket = observer(() => {
                             severityType={'warning'}
                         />
                     </Portal>
-                )}
+                )} */}
             </div>
         </a>
     );

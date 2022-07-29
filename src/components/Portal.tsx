@@ -12,7 +12,7 @@ const Portal = ({ children }) => {
         setTimeout(() => {
             setMounted(false);
         }, 3000);
-    }, [basket.length]);
+    }, []);
 
     return mounted ? createPortal(children, document.querySelector('.header')) : null;
 };

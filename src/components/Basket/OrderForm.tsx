@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 type Inputs = {
     name: string;
@@ -14,8 +14,9 @@ const OrderForm = () => {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors },
-    } = useForm<Inputs>();
+    } = useForm<Inputs>({ defaultValues: { name: 'Stepan' } });
 
     const { name, phone, adress, radio } = watch();
 
@@ -50,7 +51,7 @@ const OrderForm = () => {
                         id="phone"
                         {...register('phone', {
                             required: true,
-                            maxLength: 18,
+                            minLength: { value: 11, message: '123123123' },
                             pattern: /^([+]?[0-9\s-\(\)]{3,25})*$/i,
                         })}
                     />

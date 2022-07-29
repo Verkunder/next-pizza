@@ -1,9 +1,12 @@
 import React from 'react';
+import WithMessage from '@/components/WithMessage';
+import DumpButton from '@/components/DumpButton';
 
 const Delivery = () => (
     <div className="delivery">
         <div className="wrapper">
             <h2>Доставка и оплата</h2>
+            {WithMessage(DumpButton)}
             <div className="delivery__steps">
                 <div className="step">
                     <div className="step-img">
