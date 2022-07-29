@@ -3,9 +3,6 @@ import { observer } from 'mobx-react-lite';
 import Menu from '@/components/Header/Menu';
 import Phone from '@/components/Header/Phone';
 import Basket from '@/components/Header/Basket';
-import Push from '@/components/Push';
-import Portal from '@/components/Portal';
-import { useStore } from '@/hooks/useStore';
 
 const Index = () => {
     const [isOpen, setOpen] = useState<boolean>(false);

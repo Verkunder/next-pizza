@@ -2,8 +2,6 @@ import React, { FC, useState } from 'react';
 import CatalogItem from '@/components/Catalog/CatalogItem';
 import CatalogFilter from '@/components/Catalog/CatalogFilter';
 import Loader from '@/components/Loader';
-import Portal from '@/components/Portal';
-import Push from '@/components/Push';
 
 interface CatalogProps {
     catalog: {

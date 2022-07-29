@@ -1,6 +1,6 @@
 import { DataGrid } from '@mui/x-data-grid';
-import { userColumns, userRows } from '../../datatablesource';
 import { useState } from 'react';
+import { userColumns, userRows } from '../../datatablesource';
 
 const Datatable = () => {
     const [data, setData] = useState(userRows);
@@ -14,18 +14,16 @@ const Datatable = () => {
             field: 'action',
             headerName: 'Action',
             width: 200,
-            renderCell: params => {
-                return (
-                    <div className="cellAction">
-                        <a style={{ textDecoration: 'none' }}>
-                            <div className="viewButton">View</div>
-                        </a>
-                        <div className="deleteButton" onClick={() => handleDelete(params.row.id)}>
-                            Delete
-                        </div>
+            renderCell: params => (
+                <div className="cellAction">
+                    <a style={{ textDecoration: 'none' }}>
+                        <div className="viewButton">View</div>
+                    </a>
+                    <div className="deleteButton" onClick={() => handleDelete(params.row.id)}>
+                        Delete
                     </div>
-                );
-            },
+                </div>
+            ),
         },
     ];
     return (
