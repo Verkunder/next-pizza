@@ -1,14 +1,18 @@
+import 'aos/dist/aos.css';
+
+import AOS from 'aos';
 import Head from 'next/head';
-import React, { FC } from 'react';
-import Header from '@/components/Header/index';
-import Footer from '@/components/Footer';
+import React, { FC, useEffect } from 'react';
+
+import About from '@/components/About';
 import Banner from '@/components/Banner';
-import SaleSlidet from '@/components/SaleSlidet';
+import Index from '@/components/Basket/index';
 import Catalog from '@/components/Catalog/index';
 import Delivery from '@/components/Delivery';
-import About from '@/components/About';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header/index';
 import Instagram from '@/components/instagram';
-import Index from '@/components/Basket/index';
+import SaleSlidet from '@/components/SaleSlidet';
 
 interface CatalogProps {
     catalog: [
@@ -28,29 +32,39 @@ interface CatalogProps {
     errorMessage: string;
 }
 
-const IndexPage: FC<CatalogProps> = ({ catalog, load, errorMessage }) => (
-    <div>
-        <Head>
-            <title>Pizza</title>
-            <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <Header />
-        <main>
-            <Banner />
-            <SaleSlidet />
-            {errorMessage ? (
-                <h2 className="catalog-pizza__title">{errorMessage}</h2>
-            ) : (
-                <Catalog catalog={catalog} load={load} />
-            )}
-            <Delivery />
-            <About />
-            <Instagram />
-        </main>
-        <Footer />
-        <Index />
-    </div>
-);
+const IndexPage: FC<CatalogProps> = ({ catalog, load, errorMessage }) => {
+    useEffect(() => {
+        AOS.init({
+            duration: 2000,
+        });
+    }, []);
+    return (
+        <div>
+            <Head>
+                <title>Pizza</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <Header />
+            <main>
+                <Banner />
+                <SaleSlidet />
+                {errorMessage ? (
+                    <h2 className="catalog-pizza__title">{errorMessage}</h2>
+                ) : (
+                    <Catalog catalog={catalog} load={load} />
+                )}
+
+                <div data-aos="fade-right">
+                    <Delivery />
+                </div>
+                <About />
+                <Instagram />
+            </main>
+            <Footer />
+            <Index />
+        </div>
+    );
+};
 
 export const getServerSideProps = async () => {
     try {
