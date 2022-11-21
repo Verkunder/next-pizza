@@ -1,8 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '@/hooks/useStore';
-import Portal from '@/components/Portal';
-import Push from '@/components/Push';
 
 const Basket = observer(() => {
     const { toggleModal, basket, action } = useStore();
@@ -32,7 +30,7 @@ const Basket = observer(() => {
                 ) : (
                     <div className="basket__items--text smallText">Тут пока ничего нет</div>
                 )}
-                {/*{action === 'add' && (
+                {/* {action === 'add' && (
                     <Portal>
                         <Push
                             type="Успешно"

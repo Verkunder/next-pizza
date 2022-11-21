@@ -95,9 +95,9 @@ const CatalogItem: FC<CatalogItemProps> = observer(({ catalogItem }) => {
                         <div>
                             <Portal>
                                 <Push
-                                    type={'Успешно'}
-                                    message={'Товар добавлен в корзину'}
-                                    severityType={'success'}
+                                    type="Успешно"
+                                    message="Товар добавлен в корзину"
+                                    severityType="success"
                                 />
                             </Portal>
                             <button

@@ -14,9 +14,7 @@ const Controllers = () => {
                 control={control}
                 name="TextField"
                 render={({ field: { onChange, onBlur, value, ref } }) => (
-                    <>
-                        <TextField onChange={onChange} onBlur={onBlur} />
-                    </>
+                    <TextField onChange={onChange} onBlur={onBlur} />
                 )}
             />
 

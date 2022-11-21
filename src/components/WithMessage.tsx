@@ -13,9 +13,9 @@ const WithMessage = Component => {
             {isShow && (
                 <Portal>
                     <Push
-                        type={'Успешно'}
-                        message={'Товар добавлен в корзину'}
-                        severityType={'success'}
+                        type="Успешно"
+                        message="Товар добавлен в корзину"
+                        severityType="success"
                     />
                 </Portal>
             )}
