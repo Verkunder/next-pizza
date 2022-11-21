@@ -132,3 +132,56 @@ export default Blog
 
 #### Как продебажить приложение (конкретный компонент, функцию) в режиме SSR?
 
+> Консоль лог брат твой, либо иди через дебагер
+> 
+> Для тестирования в тузле хрома добавить ```"dev": "NODE_OPTIONS='--inspect' next dev"```
+> 
+> [Если все пошло не по плану и Антон завалил](https://nextjs.org/docs/advanced-features/debugging)
+
+#### Как реализовать адаптивные картинки в nextjs?
+
+> Использовать компоненте Image ```import Image from 'next/image'```
+> 
+```
+import Image from 'next/image'
+import profilePic from '../public/me.png'
+
+function Home() {
+  return (
+    <>
+      <h1>My Homepage</h1>
+      <Image
+        src={profilePic}
+        alt="Picture of the author"
+        // width={500} automatically provided
+        // height={500} automatically provided
+        // blurDataURL="data:..." automatically provided
+        // placeholder="blur" // Optional blur-up while loading
+      />
+      <p>Welcome to my homepage!</p>
+    </>
+  )
+}
+```
+
+#### Какие режимы есть для подгрузки Third Party scripts?
+
+> - beforeInteractive: загружать скрипт перед любым кодом Next.js и до того, как произойдет гидратация страницы.
+> - afterInteractive: ( по умолчанию ) Загрузите скрипт раньше, но после того, как на странице произойдет некоторое увлажнение.
+> - lazyOnload: загружать сценарий позже во время простоя браузера.
+> - worker: (экспериментальный) Загрузите скрипт в веб-воркере.
+> 
+> [Если что-то опять пошло не по плану](https://nextjs.org/docs/basic-features/script)
+
+```
+<Script
+  id="show-banner"
+  dangerouslySetInnerHTML={{
+    __html: `document.getElementById('banner').classList.remove('hidden')`,
+  }}
+/>
+```
+
+#### Где хранить статические файлы?
+
+> Public
